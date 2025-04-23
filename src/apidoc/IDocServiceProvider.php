@@ -14,13 +14,13 @@ class IDocServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Route::middlewareGroup('idoc', config('idoc.middleware', []));
+        Route::middlewareGroup('apidoc', config('apidoc.middleware', []));
 
         $this->registerRoutes();
         $this->registerPublishing();
 
-        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'idoc');
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views/', 'idoc');
+        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'apidoc');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views/', 'apidoc');
 
         if ($this->app->runningInConsole()) {
             $this->commands([
@@ -31,14 +31,14 @@ class IDocServiceProvider extends ServiceProvider
     }
 
     /**
-     * Get the iDoc route group configuration array.
+     * Get the apidoc route group configuration array.
      *
      * @return array
      */
     protected function registerRoutes()
     {
         Route::group($this->routeConfiguration(), function () {
-            $this->loadRoutesFrom(__DIR__ . '/../../resources/routes/idoc.php', 'idoc');
+            $this->loadRoutesFrom(__DIR__ . '/../../resources/routes/apidoc.php', 'apidoc');
         });
     }
 
@@ -51,31 +51,31 @@ class IDocServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../../resources/lang' => $this->resourcePath('lang/vendor/idoc'),
-            ], 'idoc-language');
+                __DIR__ . '/../../resources/lang' => $this->resourcePath('lang/vendor/apidoc'),
+            ], 'apidoc-language');
 
             $this->publishes([
-                __DIR__ . '/../../resources/views' => $this->resourcePath('views/vendor/idoc'),
+                __DIR__ . '/../../resources/views' => $this->resourcePath('views/vendor/apidoc'),
             ], 'idoc-views');
 
             $this->publishes([
-                __DIR__ . '/../../config/idoc.php' => app()->basePath() . '/config/idoc.php',
-            ], 'idoc-config');
+                __DIR__ . '/../../config/apidoc.php' => app()->basePath() . '/config/apidoc.php',
+            ], 'apidoc-config');
         }
     }
 
     /**
-     * Get the iDoc route group configuration array.
+     * Get the apidoc route group configuration array.
      *
      * @return array
      */
     protected function routeConfiguration()
     {
         return [
-            'domain' => config('idoc.domain', null),
-            'prefix' => config('idoc.path'),
-            'middleware' => 'idoc',
-            'as' => 'idoc.',
+            'domain' => config('apidoc.domain', null),
+            'prefix' => config('apidoc.path'),
+            'middleware' => 'iapidocdoc',
+            'as' => 'iapidocdoc.',
         ];
     }
 
@@ -86,7 +86,7 @@ class IDocServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../../config/idoc.php', 'idoc');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/apidoc.php', 'apidoc');
     }
 
     /**

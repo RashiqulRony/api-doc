@@ -3,11 +3,11 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | iDoc Domain
+    | apidoc Domain
     |--------------------------------------------------------------------------
     |
     | This is the subdomain where the documentation will be accessible from.
-    | If the setting is null, iDoc will reside under the same domain as the
+    | If the setting is null, apidoc will reside under the same domain as the
     | application. otherwise, this value will be used as the subdomain.
     |
      */
@@ -16,7 +16,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | iDoc Path
+    | apidoc Path
     |--------------------------------------------------------------------------
     |
     | This is the URI path where the documentation will be accessible from.
@@ -24,15 +24,15 @@ return [
     |
      */
 
-    'path' => 'idoc',
+    'path' => 'api-doc',
 
     /*
     |--------------------------------------------------------------------------
-    | iDoc Route Middleware
+    | apidoc Route Middleware
     |--------------------------------------------------------------------------
     |
-    | These middleware will be assigned to the iDoc route, giving you
-    | the chance to add your own or change the idoc middleware.
+    | These middleware will be assigned to the apidoc route, giving you
+    | the chance to add your own or change the apidoc middleware.
     |
      */
 
@@ -42,7 +42,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | iDoc logo url
+    | apidoc logo url
     |--------------------------------------------------------------------------
     |
     | This is the logo configuration for the documentation. The logo expects
@@ -57,7 +57,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | iDoc principal information
+    | apidoc principal information
     |--------------------------------------------------------------------------
     |
     | This is the principal information  that will be visible on the  documentation like
@@ -65,9 +65,9 @@ return [
     |
      */
 
-    'title' => 'iDoc API Reference',
+    'title' => 'Apidoc API Reference',
 
-    'description' => 'iDoc Api secification and documentation.',
+    'description' => 'Apidoc Api secification and documentation.',
 
     'version' => '',
 
@@ -86,7 +86,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | iDoc collection/output path
+    | Apidoc collection/output path
     |--------------------------------------------------------------------------
     |
     | The output path for the generated Open API 3.0 collection file.
@@ -104,11 +104,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | iDoc external description
+    | Apidoc external description
     |--------------------------------------------------------------------------
     |
     | This is the external description/info for the documentation. By default
-    | it uses the 'idoc.info' route in the documentation but you can
+    | it uses the 'apidoc.info' route in the documentation but you can
     | override it with your own route name or leave it empty to use the
     | default description. It must be a route name.
     |
@@ -116,16 +116,16 @@ return [
     |
     | examples:
     | -  Using route name:
-    |   'external_description' => 'idoc.info'
+    |   'external_description' => 'apidoc.info'
     |
     | -  You can also leave empty to use default description
     */
 
-    'external_description' => 'idoc.info',
+    'external_description' => 'apidoc.info',
 
     /*
     |--------------------------------------------------------------------------
-    | iDoc router
+    | Apidoc router
     |--------------------------------------------------------------------------
     |
     | The application's router.  (Laravel or Dingo).
@@ -136,7 +136,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | iDoc servers
+    | Apidoc servers
     |--------------------------------------------------------------------------
     |
     | The servers that should be added to the documentation. Each should have
@@ -158,7 +158,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | iDoc tag groups
+    | apidoc tag groups
     |--------------------------------------------------------------------------
     |
     | This is used to separate groups in sections in the side menu.
@@ -173,7 +173,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | iDoc languages tab.
+    | apidoc languages tab.
     |--------------------------------------------------------------------------
     | Each tab is used to generate a request template for a given language.
     | New languages can be added and the existing ones modified after.
@@ -181,7 +181,7 @@ return [
     | You can add or edit new languages tabs by publishing the view files
     | and editing them or adding custom view files to:
     |
-    |    'resources/views/vendor/idoc/languages/*.blade.php',
+    |    'resources/views/vendor/apidoc/languages/*.blade.php',
     |
     | where * is the name of the language you wish to add.
     |
@@ -197,7 +197,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | iDoc security
+    | apidoc security
     |--------------------------------------------------------------------------
     |
     | Here you can define the authentication and authorization schemes that your API use.
@@ -216,7 +216,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | iDoc routes: The routes for which documentation should be generated.
+    | apidoc routes: The routes for which documentation should be generated.
     |--------------------------------------------------------------------------
     |
     | Each group contains rules defining which routes should be included

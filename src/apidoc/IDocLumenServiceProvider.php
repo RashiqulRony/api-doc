@@ -9,8 +9,8 @@ class IDocLumenServiceProvider extends IDocServiceProvider
         $this->registerRoutes();
         $this->registerPublishing();
 
-        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'idoc');
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views/', 'idoc');
+        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'apidoc');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views/', 'apidoc');
 
         if ($this->app->runningInConsole()) {
             $this->commands([
@@ -29,10 +29,10 @@ class IDocLumenServiceProvider extends IDocServiceProvider
     protected function routeConfiguration()
     {
         return [
-            'domain' => config('idoc.domain'),
-            'prefix' => config('idoc.path'),
-            'middleware' => config('idoc.middleware', []),
-            'as' => 'idoc',
+            'domain' => config('apidoc.domain'),
+            'prefix' => config('apidoc.path'),
+            'middleware' => config('apidoc.middleware', []),
+            'as' => 'apidoc',
         ];
     }
 }

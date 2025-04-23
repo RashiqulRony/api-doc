@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{config('idoc.title')}}</title>
+    <title>{{config('apidoc.title')}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       @import url(//fonts.googleapis.com/css?family=Roboto:400,700);
@@ -27,12 +27,12 @@
 
     <script>
         Redoc.init(
-            "{{ config('idoc.output') . '/openapi.json' }}", {
+            "{{ config('apidoc.output') . '/openapi.json' }}", {
                 "showConsole": true,
                 "pathInMiddlePanel": true,
                 "layout": { "scope": "section" },
-                "unstable_externalDescription": '{{ route(config('idoc.external_description') ?: 'idoc.info') }}',
-                "hideDownloadButton": {{ config('idoc.hide_download_button') ?: 0 }}
+                "unstable_externalDescription": '{{ route(config('apidoc.external_description') ?: 'idoc.info') }}',
+                "hideDownloadButton": {{ config('apidoc.hide_download_button') ?: 0 }}
             },
             document.getElementById("redoc_container")
         );

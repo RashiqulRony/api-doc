@@ -22,7 +22,7 @@ class IDocGeneratorCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'idoc:generate
+    protected $signature = 'apidoc:generate
                             {--force : Force rewriting of existing routes}
     ';
 
@@ -48,11 +48,11 @@ class IDocGeneratorCommand extends Command
      */
     public function handle()
     {
-        $usingDingoRouter = strtolower(config('idoc.router')) == 'dingo';
+        $usingDingoRouter = strtolower(config('apidoc.router')) == 'dingo';
         if ($usingDingoRouter) {
-            $routes = $this->routeMatcher->getDingoRoutesToBeDocumented(config('idoc.routes'));
+            $routes = $this->routeMatcher->getDingoRoutesToBeDocumented(config('apidoc.routes'));
         } else {
-            $routes = $this->routeMatcher->getLaravelRoutesToBeDocumented(config('idoc.routes'));
+            $routes = $this->routeMatcher->getLaravelRoutesToBeDocumented(config('apidoc.routes'));
         }
 
         $generator = new IDocGenerator();
@@ -71,7 +71,7 @@ class IDocGeneratorCommand extends Command
      */
     private function writeMarkdown($parsedRoutes)
     {
-        $outputPath = public_path(config('idoc.output'));
+        $outputPath = public_path(config('apidoc.output'));
 
         if (!File::isDirectory($outputPath)) {
             File::makeDirectory($outputPath, 0777, true, true);
@@ -281,7 +281,7 @@ class IDocGeneratorCommand extends Command
                             (
                                 $route['authenticated']
                                 ? ['security' => [
-                                   collect(config('idoc.security'))->map(function () {
+                                   collect(config('apidoc.security'))->map(function () {
                                     return [];
                                 }),
                                 ]]
@@ -340,9 +340,9 @@ class IDocGeneratorCommand extends Command
                                                             'example' => $schema['example'],
                                                             'properties' => collect($schema['properties'])
                                                                 ->map(function($item, $key) use (&$requiredFields) {
-                                                                    
+
                                                                     if($item['required']) $requiredFields[] = $key;
-                                                                    
+
                                                                     $property = [
                                                                         'type' => $item['type'],
                                                                         'description' => $item['description'],
@@ -359,11 +359,11 @@ class IDocGeneratorCommand extends Command
 
                                                                     return $property;
                                                                 })
-                                                                ->toArray(), 
+                                                                ->toArray(),
                                                             'required' => $requiredFields,
                                                         ]
                                                     ]
-                                                
+
                                                 ]
                                             ]
                                         ];
@@ -380,14 +380,14 @@ class IDocGeneratorCommand extends Command
                                                     ]
                                                 ]
                                             ]
-                                        ] 
+                                        ]
                                     ];
                                 })->all(),
 
-                                'x-code-samples' => collect(config('idoc.language-tabs'))->map(function ($name, $lang) use ($route) {
+                                'x-code-samples' => collect(config('apidoc.language-tabs'))->map(function ($name, $lang) use ($route) {
                                     return [
                                         'lang' => $name,
-                                        'source' => view('idoc::languages.' . $lang, compact('route'))->render(),
+                                        'source' => view('apidoc::languages.' . $lang, compact('route'))->render(),
                                     ];
                                 })->values(),
                             ]
@@ -414,22 +414,22 @@ class IDocGeneratorCommand extends Command
             'openapi' => '3.0.0',
 
             'info' => [
-                'title' => config('idoc.title'),
-                'version' => config('idoc.version'),
-                'description' => config('idoc.description'),
-                'termsOfService' => config('idoc.terms_of_service'),
-                "license" =>  !empty(config('idoc.license')) ? config('idoc.license') : null,
-                "contact" =>  config('idoc.contact'),
+                'title' => config('apidoc.title'),
+                'version' => config('apidoc.version'),
+                'description' => config('apidoc.description'),
+                'termsOfService' => config('apidoc.terms_of_service'),
+                "license" =>  !empty(config('apidoc.license')) ? config('apidoc.license') : null,
+                "contact" =>  config('apidoc.contact'),
                 "x-logo" => [
-                    "url" => config('idoc.logo'),
-                    "altText" => config('idoc.title'),
-                    "backgroundColor" => config('idoc.color'),
+                    "url" => config('apidoc.logo'),
+                    "altText" => config('apidoc.title'),
+                    "backgroundColor" => config('apidoc.color'),
                 ],
             ],
 
             'components' => [
 
-                'securitySchemes' => config('idoc.security'),
+                'securitySchemes' => config('apidoc.security'),
 
                 'schemas' => $routes->mapWithKeys(function ($routeGroup, $groupName) {
 
@@ -464,11 +464,11 @@ class IDocGeneratorCommand extends Command
                 })->filter(),
             ],
 
-            'servers' => config('idoc.servers'),
+            'servers' => config('apidoc.servers'),
 
             'paths' => $paths,
 
-            'x-tagGroups' => config('idoc.tag_groups'),
+            'x-tagGroups' => config('apidoc.tag_groups'),
         ];
 
         return json_encode($collection);
