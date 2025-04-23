@@ -4,8 +4,102 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ba44c4eeb87ce0fd071d132800fe135",
+    "content-hash": "138eaa661c7a624508899b6a88cc3d8e",
     "packages": [
+        {
+            "name": "api-ecosystem-for-laravel/dingo-api",
+            "version": "v4.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/api-ecosystem-for-laravel/dingo-api.git",
+                "reference": "6bdbb6819aeb039ec6dcd28d979a5075d7036a00"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/api-ecosystem-for-laravel/dingo-api/zipball/6bdbb6819aeb039ec6dcd28d979a5075d7036a00",
+                "reference": "6bdbb6819aeb039ec6dcd28d979a5075d7036a00",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/routing": "^9.0|^10.0|^11.0|^12.0",
+                "illuminate/support": "^9.0|^10.0|^11.0|^12.0",
+                "php": "^8.2",
+                "php-open-source-saver/fractal": "^1.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~3",
+                "illuminate/auth": "^9.0|^10.0|^11.0|^12.0",
+                "illuminate/cache": "^9.0|^10.0|^11.0|^12.0",
+                "illuminate/console": "^9.0|^10.0|^11.0|^12.0",
+                "illuminate/database": "^9.0|^10.0|^11.0|^12.0",
+                "illuminate/events": "^9.0|^10.0|^11.0|^12.0",
+                "illuminate/filesystem": "^9.0|^10.0|^11.0|^12.0",
+                "illuminate/log": "^9.0|^10.0|^11.0|^12.0",
+                "illuminate/pagination": "^9.0|^10.0|^11.0|^12.0",
+                "illuminate/translation": "^9.0|^10.0|^11.0|^12.0",
+                "laravel/framework": "^9.0|^10.0|^11.0|^12.0",
+                "mockery/mockery": "~1.0",
+                "php-open-source-saver/jwt-auth": "^1.4 | ^2.8",
+                "phpunit/phpunit": "^9.5|^10.5",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "suggest": {
+                "dingo/blueprint": "Legacy package which can produce API docs from dingo/api",
+                "php-open-source-saver/jwt-auth": "Protect your API with JSON Web Tokens.",
+                "specialtactics/laravel-api-boilerplate": "API Boilerplate for Laravel"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "API": "Dingo\\Api\\Facade\\API"
+                    },
+                    "providers": [
+                        "Dingo\\Api\\Provider\\LaravelServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Dingo\\Api\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Jason Lewis",
+                    "email": "jason.lewis1991@gmail.com"
+                },
+                {
+                    "name": "Max Snow",
+                    "email": "contact@maxsnow.me"
+                }
+            ],
+            "description": "A RESTful API package for the Laravel and Lumen frameworks.",
+            "keywords": [
+                "api",
+                "dingo",
+                "laravel",
+                "restful"
+            ],
+            "support": {
+                "issues": "https://github.com/api-ecosystem-for-laravel/dingo-api/issues",
+                "source": "https://github.com/api-ecosystem-for-laravel/dingo-api/tree/v4.6.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/specialtactics",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-03-06T02:35:49+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.12.3",
@@ -2569,6 +2663,89 @@
                 }
             ],
             "time": "2024-11-21T10:39:51+00:00"
+        },
+        {
+            "name": "php-open-source-saver/fractal",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHP-Open-Source-Saver/fractal.git",
+                "reference": "67bc9db60a73dcc80c8df0e62479141ef39731e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHP-Open-Source-Saver/fractal/zipball/67bc9db60a73dcc80c8df0e62479141ef39731e5",
+                "reference": "67bc9db60a73dcc80c8df0e62479141ef39731e5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "doctrine/orm": "^2.5",
+                "illuminate/contracts": "~10.0",
+                "mockery/mockery": "^1.3",
+                "pagerfanta/pagerfanta": "~1.0.0",
+                "phpstan/phpstan": "^1.4",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "~3.4",
+                "vimeo/psalm": "^4.22|^5.20",
+                "zendframework/zend-paginator": "~2.3"
+            },
+            "suggest": {
+                "illuminate/pagination": "The Illuminate Pagination component.",
+                "pagerfanta/pagerfanta": "Pagerfanta Paginator",
+                "zendframework/zend-paginator": "Zend Framework Paginator"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.20.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PHPOpenSourceSaver\\Fractal\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phil Sturgeon",
+                    "email": "me@philsturgeon.uk",
+                    "homepage": "http://philsturgeon.uk/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Max Snow",
+                    "email": "contact@maxsnow.me",
+                    "homepage": "https://maxsnow.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Handle the output of complex data structures ready for API output.",
+            "homepage": "https://github.com/PHP-Open-Source-Saver/fractal",
+            "keywords": [
+                "api",
+                "json",
+                "laravel",
+                "league",
+                "rest"
+            ],
+            "support": {
+                "issues": "https://github.com/PHP-Open-Source-Saver/fractal/issues",
+                "source": "https://github.com/PHP-Open-Source-Saver/fractal"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/specialtactics",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-01-12T05:45:06+00:00"
         },
         {
             "name": "phpoption/phpoption",
